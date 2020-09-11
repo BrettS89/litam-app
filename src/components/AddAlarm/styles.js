@@ -6,13 +6,12 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: colors.black,
     padding: 15,
-    alignItems: 'center'
+    // alignItems: 'center'
   },
   timeView: {
-    paddingTop: 15,
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 15
+    marginBottom: 0
   },
   ampm: {
     flexDirection: 'row',
@@ -25,6 +24,7 @@ export default StyleSheet.create({
   daySection: {
     width: '100%',
     paddingHorizontal: 15,
+    marginBottom: 45
   },
   day: {
     flexDirection: 'row',
@@ -35,8 +35,11 @@ export default StyleSheet.create({
     borderBottomWidth: 1
   },
   dayText: {
-    fontSize: 14,
+    fontSize: 15,
     fontWeight: '800',
     marginLeft: 6,
+  },
+  buttonView: {
+    marginBottom: 70,
   }
 });

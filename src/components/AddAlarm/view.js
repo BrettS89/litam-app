@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity, ScrollView } from 'react-native';
 import styles from './styles';
 import Txt from '../Txt';
 import TimeInput from './components/timeInput';
 import Day from './components/day';
 import colors from '../../shared/styles/colors';
+import Button from '../../shared/components/Button';
 
 const AddAlarmView = ({ setHour, setMinutes, ampm, setAmpm, days, setRepeat }) => {
   function renderAmpm(x) {
@@ -31,7 +32,7 @@ const AddAlarmView = ({ setHour, setMinutes, ampm, setAmpm, days, setRepeat }) =
   }
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container} contentContainerStyle={{ alignItems: 'center' }} showsVerticalScrollIndicator={false}>
       <View style={styles.timeView}>
         <TimeInput placeholder="8" onChangeText={e => setHour(e)} autoFocus />
         <Txt moreStyles={{ fontSize: 52, fontWeight: '800', paddingBottom: 10 }}>:</Txt>
@@ -45,7 +46,10 @@ const AddAlarmView = ({ setHour, setMinutes, ampm, setAmpm, days, setRepeat }) =
       <View style={styles.daySection}>
         {renderDaysToRepeat()}
       </View>
-    </View>
+      <View style={styles.buttonView}>
+        <Button text="Add alarm" buttonStyle={{ width: 160 }} />
+      </View>
+    </ScrollView>
   );
 };
 

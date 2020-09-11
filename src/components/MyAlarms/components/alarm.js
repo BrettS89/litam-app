@@ -13,7 +13,7 @@ const Alarm = props => {
           7:00
         </Txt>
         <View style={{ justifyContent: 'flex-end' }}>
-          <Txt>
+          <Txt moreStyles={styles.ampmText}>
             AM
           </Txt>
         </View>

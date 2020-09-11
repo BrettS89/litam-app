@@ -5,9 +5,9 @@ import styles from '../styles';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from '../../../shared/styles/colors'
 
-const Day = ({ day, repeat, setRepeat }) => {
+const Day = ({ day, setRepeat }) => {
   function displayRepeat() {
-    if (repeat) {
+    if (day.repeat) {
       return (
         <TouchableOpacity onPress={() => setRepeat(day.day)}>
           <Icon name="checkbox-blank-circle" size={25} color={colors.main} />

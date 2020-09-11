@@ -17,8 +17,12 @@ export default StyleSheet.create({
     flexDirection: 'row'
   },
   timeText: {
-    fontSize: 26,
+    fontSize: 30,
     marginRight: 5
+  },
+  ampmText: {
+    fontSize: 18,
+    paddingBottom: 3,
   },
   days: {
     flexDirection: 'row',

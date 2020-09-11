@@ -21,9 +21,13 @@ const AddAlarm = props => {
     const newDays = daysClone.map(d => {
       return day === d.day
         ? { day: d.day, repeat: !d.repeat }
-        : day;
+        : d;
     });
     setDays(newDays);
+  }
+
+  function addAlarm() {
+    
   }
 
   return (
