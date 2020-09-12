@@ -7,7 +7,7 @@ import Day from './components/day';
 import colors from '../../shared/styles/colors';
 import Button from '../../shared/components/Button';
 
-const AddAlarmView = ({ setHour, setMinutes, ampm, setAmpm, days, setRepeat }) => {
+const AddAlarmView = ({ setHour, setMinutes, ampm, setAmpm, days, setRepeat, addAlarm }) => {
   function renderAmpm(x) {
     if (ampm === x) {
       return (
@@ -47,7 +47,7 @@ const AddAlarmView = ({ setHour, setMinutes, ampm, setAmpm, days, setRepeat }) =
         {renderDaysToRepeat()}
       </View>
       <View style={styles.buttonView}>
-        <Button text="Add alarm" buttonStyle={{ width: 160 }} />
+        <Button text="Add alarm" buttonStyle={{ width: 160 }} onPress={addAlarm} />
       </View>
     </ScrollView>
   );

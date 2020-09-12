@@ -20,3 +20,17 @@ export async function login(body) {
   errorThrower(res, response);
   return response.data;
 }
+
+export async function addAlarm(body) {
+  const res = await fetch(`${URI}/alarm/create`, {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json',
+      'authorization': await getToken(),
+    },
+    body: JSON.stringify(body),
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}

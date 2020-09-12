@@ -5,3 +5,6 @@ export const ON_LOGIN = 'ON_USER_LOGIN';
 export const ON_REGISTER = 'ON_USER_REGISTER';
 export const SET_USER_REGISTRATION_DATA = 'SET_USER_REGISTRATION_DATA';
 export const SET_USER_DATA = 'SET_USER_DATA';
+
+export const ADD_ALARM = 'ADD_ALARM';
+export const SET_ALARM = 'SET_ALARM';

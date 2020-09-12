@@ -5,27 +5,43 @@ import Txt from '../../Txt';
 import colors from '../../../shared/styles/colors';
 import Icon from 'react-native-vector-icons/Entypo';
 
-const Alarm = props => {
+const Alarm = ({ alarm }) => {
+  const days = [
+    { day: 'Sun', letter: 'S' },
+    { day: 'Mon', letter: 'M' },
+    { day: 'Tues', letter: 'T' },
+    { day: 'Wed', letter: 'W' },
+    { day: 'Thurs', letter: 'T' },
+    { day: 'Fri', letter: 'F' },
+    { day: 'Sat', letter: 'S' },
+  ];
+  function renderDays() {
+    return days.map(d => {
+      if (alarm.days.includes(d.day) || alarm.day === d.day) {
+        return (
+          <Txt key={d.day} moreStyles={styles.dayIncluded}>{d.letter}</Txt>
+        );
+      }
+      return (
+        <Txt key={d.day} moreStyles={styles.day}>{d.letter}</Txt>
+      )
+    })
+  }
+
   return (
     <View style={styles.alarm}>
       <View style={styles.time}>
         <Txt moreStyles={styles.timeText}>
-          7:00
+          {alarm.displayTime}
         </Txt>
         <View style={{ justifyContent: 'flex-end' }}>
           <Txt moreStyles={styles.ampmText}>
-            AM
+            {alarm.amPm}
           </Txt>
         </View>
       </View>
       <View style={styles.days}>
-        <Txt moreStyles={styles.day}>S</Txt>
-        <Txt moreStyles={styles.day}>M</Txt>
-        <Txt moreStyles={styles.day}>T</Txt>
-        <Txt moreStyles={styles.day}>W</Txt>
-        <Txt moreStyles={styles.day}>T</Txt>
-        <Txt moreStyles={styles.day}>F</Txt>
-        <Txt moreStyles={styles.day}>S</Txt>
+        {renderDays()}
       </View>
       <View style={styles.right}>
         <Switch

@@ -14,7 +14,8 @@ export default StyleSheet.create({
     alignItems: 'center'
   },
   time: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    width: 87,
   },
   timeText: {
     fontSize: 30,
@@ -29,6 +30,10 @@ export default StyleSheet.create({
   },
   day: {
     marginHorizontal: 2,
+  },
+  dayIncluded: {
+    marginHorizontal: 2,
+    color: colors.main,
   },
   right: {
     flexDirection: 'row',
