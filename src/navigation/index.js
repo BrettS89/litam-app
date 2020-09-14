@@ -11,6 +11,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import HeaderBack from '../shared/components/HeaderBack';
 import Logo from '../shared/components/Logo';
 
+import Auth from '../components/Auth';
 import Landing from '../components/Landing';
 import Login from '../components/Login';
 import MyAlarms from '../components/MyAlarms';
@@ -65,6 +66,9 @@ const mainNav = createBottomTabNavigator({
 });
 
 const authNav = createBottomTabNavigator({
+  Auth: {
+    screen: Auth,
+  },
   Landing: {
     screen: Landing,
     navigationOptions: {

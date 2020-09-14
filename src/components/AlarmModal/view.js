@@ -15,16 +15,25 @@ const AlarmModalView = ({ alarmState, alarmState: { alarmMessage }, wakeUp }) =>
                 style={styles.profileImage}
                 resizeMode="cover"
               />
-              <View style={styles.usernameView}>
-                <Txt moreStyles={styles.fromText}>
-                  From 
-                </Txt>
-                <Txt moreStyles={styles.nameText}>
-                  {` ${alarmMessage.user.firstName} `} 
-                </Txt>
-                <Txt moreStyles={styles.nameText}>
-                  {alarmMessage.user.lastName}
-                </Txt>
+
+              <View style={styles.usernameSection}>
+                <View style={styles.messageFrom}>
+                  <Txt moreStyles={styles.fromText}>
+                    {`Message `} 
+                  </Txt>
+                  <Txt moreStyles={styles.fromText}>
+                    from 
+                  </Txt>
+                </View>
+                <View style={styles.usernameView}>
+                  
+                  <Txt moreStyles={styles.nameText}>
+                    {` ${alarmMessage.user.firstName} `} 
+                  </Txt>
+                  <Txt moreStyles={styles.nameText}>
+                    {alarmMessage.user.lastName}
+                  </Txt>
+                </View>
               </View>
 
               <View style={styles.messageView}>
@@ -33,6 +42,11 @@ const AlarmModalView = ({ alarmState, alarmState: { alarmMessage }, wakeUp }) =>
                 </Txt>
               </View>
 
+              <View style={{ width: '100%', marginBottom: 15 }}>
+                <Txt moreStyles={{ fontSize: 13, fontWeight: '700' }}>
+                  {alarmMessage.user.firstName} picked this song to wake you up:
+                </Txt>
+              </View>
               <View style={styles.songView}>
                 <Image 
                   source={{ uri: alarmMessage.song.albumArt }}

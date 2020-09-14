@@ -16,16 +16,24 @@ export default StyleSheet.create({
     height: 176,
     borderRadius: 88,
     width: 176,
-    marginBottom: 20,
+    marginBottom: 15,
+  },
+  usernameSection: {
+    marginBottom: 40,
   },
   usernameView: {
     // flex: 1,
     flexDirection: 'row',
-    marginBottom: 20
+    marginTop: 5
+  },
+  messageFrom: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+
   },
   fromText: {
     color: colors.main,
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: '800',
   },
   nameText: {
@@ -40,6 +48,7 @@ export default StyleSheet.create({
     fontWeight: '500',
     fontSize: 20,
     flexWrap: 'wrap',
+    textAlign: 'center',
   },
   songView: {
     width: '100%',

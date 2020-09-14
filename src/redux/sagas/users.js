@@ -5,13 +5,19 @@ import {
 import _ from 'lodash';
 import * as actions from '../actions';
 import * as api from '../../lib/api';
+import setAlarmsInEmitter from '../../utils/setAlarmsInEmitter';
 
 export default [
   loginWatcher,
+  isLoggedInWatcher,
 ];
 
 function * loginWatcher() {
   yield takeLatest(actions.ON_LOGIN, loginHandler);
+}
+
+function * isLoggedInWatcher() {
+  yield takeLatest(actions.CHECK_IS_LOGGED_IN, isLoggedInHandler);
 }
 
 function * loginHandler({ payload: { form, navigate } }) {
@@ -27,3 +33,17 @@ function * loginHandler({ payload: { form, navigate } }) {
     console.log('registerHandler error: ', e.message);
   }
 }
+
+function * isLoggedInHandler({ payload }) {
+  try {
+    const { user } = yield call(api.isLoggedIn);
+    yield put({ type: actions.SET_USER_DATA, payload: user });
+    const { alarms } = yield call(api.getMyAlarms);
+    alarms.forEach(a => setAlarmsInEmitter(a));
+    yield put({ type: actions.SET_ALARM, payload: alarms });
+    payload('MyAlarms');
+  } catch(e) {
+    payload('Landing');
+  }
+}
+

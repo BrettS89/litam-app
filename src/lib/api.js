@@ -8,6 +8,18 @@ async function getToken() {
   return token;
 }
 
+export async function isLoggedIn() {
+  const res = await fetch(`${URI}/user/isloggedin`, {
+    method: 'GET',
+    headers: {
+      'authorization': await getToken(),
+    },
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}
+
 export async function login(body) {
   const res = await fetch(`${URI}/user/login`, {
     method: 'PATCH',
@@ -37,6 +49,18 @@ export async function addAlarm(body) {
 
 export async function getAlarmMessage(alarmId) {
   const res = await fetch(`${URI}/alarmmessage/${alarmId}`, {
+    method: 'GET',
+    headers: {
+      'authorization': await getToken(),
+    },
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}
+
+export async function getMyAlarms() {
+  const res = await fetch(`${URI}/alarms/myalarms`, {
     method: 'GET',
     headers: {
       'authorization': await getToken(),

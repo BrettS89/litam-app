@@ -5,7 +5,6 @@ import { SOUND_ALARM } from '../redux/actions';
 
 export default async (alarm) => {
   const date = getIsoDate();
-  console.log(alarm.rang);
   if (alarm.rang.includes(date)) return null;
   try {
     const { alarmMessage } = await getAlarmMessage(alarm._id);

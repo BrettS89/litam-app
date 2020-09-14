@@ -5,16 +5,16 @@ import { getIsoDate } from './date';
 class EventEmitter {
   constructor() {
     this.events = {
-      '08 00': [
-        {
-          _id: '001',
-          days: ['Mon', 'Tues', 'Weds', 'Thurs', 'Fri'],
-          day: 'Sun',
-          time: '08 00',
-          displayTime: '8:00',
-          ampm: 'AM',
-        }
-      ],
+      // '08 00': [
+      //   {
+      //     _id: '001',
+      //     days: ['Mon', 'Tues', 'Weds', 'Thurs', 'Fri'],
+      //     day: 'Sun',
+      //     time: '08 00',
+      //     displayTime: '8:00',
+      //     ampm: 'AM',
+      //   }
+      // ],
     }
   }
 
@@ -25,7 +25,7 @@ class EventEmitter {
   }
 
   async emit(time) {
-    const toDelete = [];
+    const toDelete = {};
     const rang = [];
     const events = _.cloneDeep(this.events);
     const arr = events[time];
@@ -35,14 +35,14 @@ class EventEmitter {
 
     for (let a of arr) {
       if (a.days.includes(today) || !a.days.length) {
-        if (!a.days.length) toDelete.push(a._id);
+        if (!a.days.length) toDelete[a._id] = true;
         // run logic
         const didRing = await triggerAlarm(a);
         if (didRing) rang.push(a._id);
       }
     };
 
-    let updatedAlarms = arr.filter(a => !toDelete.includes(a._id));
+    let updatedAlarms = arr.filter(a => !toDelete[a._id]);
     updatedAlarms = arr.map(a => {
       if (rang.includes(a._id)) {
         return {
