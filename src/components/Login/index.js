@@ -13,7 +13,6 @@ const Login = props => {
   const [password, setPassword] = useState('');
 
   function onSubmit() {
-    console.log(email, password);
     dispatch({ type: ON_LOGIN, payload: { form: { email, password }, navigate, } });
   }
 

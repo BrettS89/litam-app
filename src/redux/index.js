@@ -7,7 +7,7 @@ import rootSagas from './sagas';
 const sagaMiddleware = createSagaMiddleware();
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-export default () => {
+export default (() => {
   const middlewares = [
     sagaMiddleware,
   ];
@@ -20,4 +20,4 @@ export default () => {
   sagaMiddleware.run(rootSagas);
 
   return store;
-};
+})();

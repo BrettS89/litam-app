@@ -8,3 +8,5 @@ export const SET_USER_DATA = 'SET_USER_DATA';
 
 export const ADD_ALARM = 'ADD_ALARM';
 export const SET_ALARM = 'SET_ALARM';
+export const SOUND_ALARM = 'TRIGGER_ALARM';
+export const STOP_ALARM = 'STOP_ALARM';

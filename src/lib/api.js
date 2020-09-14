@@ -10,7 +10,7 @@ async function getToken() {
 
 export async function login(body) {
   const res = await fetch(`${URI}/user/login`, {
-    method: 'patch',
+    method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
     },
@@ -23,12 +23,24 @@ export async function login(body) {
 
 export async function addAlarm(body) {
   const res = await fetch(`${URI}/alarm/create`, {
-    method: 'post',
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'authorization': await getToken(),
     },
     body: JSON.stringify(body),
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}
+
+export async function getAlarmMessage(alarmId) {
+  const res = await fetch(`${URI}/alarmmessage/${alarmId}`, {
+    method: 'GET',
+    headers: {
+      'authorization': await getToken(),
+    },
   });
   const response = await res.json();
   errorThrower(res, response);

@@ -1,8 +1,10 @@
+import { getCurrentTime } from './date';
+
 export default (hour, minutes, days) => {
   const weekdays = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
   const timeToSet = `${hour}:${minutes}:00`;
   const todaysWeekday = new Date().toString().split(' ')[0];
-  const currentTime = new Date().toISOString().split('T')[1].split('.')[0];
+  const currentTime = getCurrentTime();
 
   if (!days.length) {
     if (currentTime > timeToSet) {

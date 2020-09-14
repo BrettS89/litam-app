@@ -16,10 +16,12 @@ function * addAlarmWatcher() {
   yield takeLatest(actions.ADD_ALARM, addAlarmHandler);
 }
 
+
 function * addAlarmHandler({ payload: { alarm, navigate } }) {
   try {
     const body = {
-      time: alarm.displayTime,
+      displayTime: alarm.displayTime,
+      time: alarm.time,
       day: alarm.day,
       days: alarm.days,
       amPm: alarm.amPm,
@@ -34,6 +36,7 @@ function * addAlarmHandler({ payload: { alarm, navigate } }) {
       time: alarm.time,
       displayTime: alarm.displayTime,
       amPm: alarm.amPm,
+      rang: [],
     }
     let alarms = yield AsyncStorage.getItem('alarms');
     if (alarms) alarms = JSON.parse(alarms);
