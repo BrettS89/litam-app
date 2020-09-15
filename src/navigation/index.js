@@ -16,8 +16,59 @@ import Landing from '../components/Landing';
 import Login from '../components/Login';
 import MyAlarms from '../components/MyAlarms';
 import AddAlarm from '../components/AddAlarm';
+import PickSong from '../components/PickSong';
+import Alarms from '../components/Alarms';
+import WriteMessage from '../components/WriteMessage';
 
 const mainNav = createBottomTabNavigator({
+  Alarms: {
+    screen: createStackNavigator({
+      Alarms: {
+        screen: Alarms,
+        navigationOptions: {
+          headerLeft: () => <Logo width={75} moreStyles={{ marginLeft: 15 }} />,
+          headerRight: () => null,
+          headerTitle: () => null,
+          headerStyle: {
+            shadowOffset: { height: 0, width: 0 },
+            backgroundColor: colors.black,
+          }
+        },
+      },
+      PickSong: {
+        screen: PickSong,
+        navigationOptions: {
+          headerLeft: () => <HeaderBack screen="Alarms" />,
+          headerRight: () => null,
+          headerTitle: () => <View><Text style={{ fontSize: 22, fontWeight: '900', color: colors.white }}>Pick a song</Text></View>,
+          headerStyle: {
+            shadowOffset: { height: 0, width: 0 },
+            backgroundColor: colors.black,
+          }
+        },
+      },
+      WriteMessage: {
+        screen: WriteMessage,
+        navigationOptions: {
+          headerLeft: () => <HeaderBack screen="PickSong" />,
+          headerRight: () => null,
+          headerTitle: () => <View><Text style={{ fontSize: 22, fontWeight: '900', color: colors.white }}>Finish</Text></View>,
+          headerStyle: {
+            shadowOffset: { height: 0, width: 0 },
+            backgroundColor: colors.black,
+          }
+        },
+      },
+    }),
+    navigationOptions: {
+      title: 'Discover',
+      activeTintColor: colors.main,
+      tabBarIcon: ({ tintColor }) => (
+        <Icon name="search" size={22} color={tintColor}/>
+      )
+    }
+  },
+
   MyAlarms: {
     screen: createStackNavigator({
       MyAlarms: {
@@ -65,10 +116,7 @@ const mainNav = createBottomTabNavigator({
   },
 });
 
-const authNav = createBottomTabNavigator({
-  Auth: {
-    screen: Auth,
-  },
+const noBottomNav = createBottomTabNavigator({
   Landing: {
     screen: Landing,
     navigationOptions: {
@@ -95,7 +143,7 @@ const authNav = createBottomTabNavigator({
       },
     }),
     navigationOptions: {
-      title: 'Landing',
+      title: 'Login',
       activeTintColor: colors.main,
       tabBarIcon: ({ tintColor }) => (
         <Icon name="clock" size={28} color={tintColor}/>
@@ -112,9 +160,23 @@ const authNav = createBottomTabNavigator({
   },
 });
 
+const authNav = createBottomTabNavigator({
+  Auth: {
+    screen: Auth,
+  },
+},
+{
+  tabBarOptions: {
+    activeTintColor: colors.main,
+    style: {
+      display: 'none'
+    }
+  },
+});
+
 const rootNavigator = createSwitchNavigator({
   AuthNav: authNav,
-  // NoBottomNav: noBottomNav,
+  NoBottomNav: noBottomNav,
   Main: mainNav,
 }, {
   initialRouteName: 'AuthNav',

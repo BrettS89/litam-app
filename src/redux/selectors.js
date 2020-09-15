@@ -1,1 +1,1 @@
-export const alarmsState = state => state.alarms.alarms;
+export const myAlarmsState = state => state.alarms.myAlarms;

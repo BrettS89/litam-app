@@ -38,12 +38,14 @@ function * isLoggedInHandler({ payload }) {
   try {
     const { user } = yield call(api.isLoggedIn);
     yield put({ type: actions.SET_USER_DATA, payload: user });
-    const { alarms } = yield call(api.getMyAlarms);
+    const { myAlarms } = yield call(api.getMyAlarms);
+    const { alarms } = yield call(api.getAlarms);
     alarms.forEach(a => setAlarmsInEmitter(a));
-    yield put({ type: actions.SET_ALARM, payload: alarms });
+    yield put({ type: actions.SET_MY_ALARMS, payload: myAlarms });
+    yield put({ type: actions.SET_ALARMS, payload: alarms });
     payload('MyAlarms');
   } catch(e) {
+    console.log('isLoggedInHandler error', e);
     payload('Landing');
   }
 }
-

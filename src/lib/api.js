@@ -1,4 +1,5 @@
 import { AsyncStorage } from 'react-native';
+import axios from 'axios';
 import { URI } from '../config';
 import errorThrower from '../utils/errorThrower';
 
@@ -61,6 +62,34 @@ export async function getAlarmMessage(alarmId) {
 
 export async function getMyAlarms() {
   const res = await fetch(`${URI}/alarms/myalarms`, {
+    method: 'GET',
+    headers: {
+      'authorization': await getToken(),
+    },
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}
+
+export async function getAlarms() {
+  const res = await fetch(`${URI}/alarms`, {
+    method: 'GET',
+    headers: {
+      'authorization': await getToken(),
+    },
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}
+
+export async function getSongs(term) {
+  const uri = term
+    ? `${URI}/songs/${term}`
+    : `${URI}/songs/undefined`;
+  
+  const res = await fetch(uri, {
     method: 'GET',
     headers: {
       'authorization': await getToken(),

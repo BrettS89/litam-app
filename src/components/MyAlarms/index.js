@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import View from './view';
 
 const MyAlarms = props => {
-  const alarms = useSelector(state => state.alarms.alarms);
+  const alarms = useSelector(state => state.alarms.myAlarms);
 
   function navigateToAddAlarm() {
     props.navigation.navigate('AddAlarm');

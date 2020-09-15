@@ -6,7 +6,7 @@ import _ from 'lodash';
 import * as actions from '../actions';
 import * as api from '../../lib/api';
 import eventEmitter from '../../utils/EventEmitter';
-import { alarmsState } from '../selectors';
+import { myAlarmsState } from '../selectors';
 
 export default [
   addAlarmWatcher,
@@ -15,7 +15,6 @@ export default [
 function * addAlarmWatcher() {
   yield takeLatest(actions.ADD_ALARM, addAlarmHandler);
 }
-
 
 function * addAlarmHandler({ payload: { alarm, navigate } }) {
   try {
@@ -44,10 +43,10 @@ function * addAlarmHandler({ payload: { alarm, navigate } }) {
     alarmsClone.push(alarmForEventEmitter);
     yield AsyncStorage.setItem('alarms', JSON.stringify(alarmsClone));
     eventEmitter.on(alarm.time, alarmForEventEmitter);
-    const alarmsReduxState = yield select(alarmsState);
+    const alarmsReduxState = yield select(myAlarmsState);
     const alarmsStateClone = _.cloneDeep(alarmsReduxState);
     alarmsStateClone.push(alarmForEventEmitter);
-    yield put({ type: actions.SET_ALARM, payload: alarmsStateClone });
+    yield put({ type: actions.SET_MY_ALARMS, payload: alarmsStateClone });
     navigate();
   } catch(e) {
     console.log('addAlarmHandler error', e);

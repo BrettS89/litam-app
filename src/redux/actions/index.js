@@ -7,7 +7,12 @@ export const ON_REGISTER = 'ON_USER_REGISTER';
 export const SET_USER_REGISTRATION_DATA = 'SET_USER_REGISTRATION_DATA';
 export const SET_USER_DATA = 'SET_USER_DATA';
 
+export const SET_MY_ALARMS = 'SET_MY_ALARMS';
+export const SET_ALARMS = 'SET_ALARMS';
 export const ADD_ALARM = 'ADD_ALARM';
 export const SET_ALARM = 'SET_ALARM';
 export const SOUND_ALARM = 'TRIGGER_ALARM';
 export const STOP_ALARM = 'STOP_ALARM';
+
+export const GET_SONGS = 'GET_SONGS';
+export const SET_SONGS = 'SET_SONGS';

@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon2 from 'react-native-vector-icons/FontAwesome5';
 import colors from '../styles/colors';
 
-const Input = ({ labelText, value, onChangeText, placeholder, secureTextEntry, onSubmitHandler, email, clear, type, maxLength=50, newStyles }) => {
+const Input = ({ labelText, value, onChangeText, placeholder, secureTextEntry, onSubmitHandler, email, clear, type, maxLength=50, newStyles={} }) => {
 
   const displayIcon = () => {
     if(labelText === 'email') {
@@ -25,6 +25,9 @@ const Input = ({ labelText, value, onChangeText, placeholder, secureTextEntry, o
     if (labelText === 'date') {
       return <Icon2 name="calendar-alt" size={24} color="lightgray" style={{ marginLeft: 2 }} />;
     }
+    if (labelText === 'music') {
+      return <Icon2 name="search" size={20} color={colors.white}  />;
+    }
   };
 
   const renderKeyboardType = () => {
@@ -35,7 +38,7 @@ const Input = ({ labelText, value, onChangeText, placeholder, secureTextEntry, o
 
   const { label, textInput, container } = styles;
   return (
-    <View style={[container]}>
+    <View style={[container, newStyles]}>
       <View style={[styles.label, { flex: labelText ? 1 : 0 }]}>
         {displayIcon()}
       </View>
@@ -66,7 +69,7 @@ const styles = StyleSheet.create({
     paddingRight: 3,
     fontSize: 15,
     fontWeight: '800',
-    flex: 5,
+    flex: 10,
   },
   container: {
     height: 40,
