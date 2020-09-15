@@ -9,7 +9,7 @@ const Alarm = ({ alarm }) => {
   const days = [
     { day: 'Sun', letter: 'S' },
     { day: 'Mon', letter: 'M' },
-    { day: 'Tues', letter: 'T' },
+    { day: 'Tue', letter: 'T' },
     { day: 'Wed', letter: 'W' },
     { day: 'Thurs', letter: 'T' },
     { day: 'Fri', letter: 'F' },

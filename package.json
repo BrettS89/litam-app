@@ -10,6 +10,7 @@
   "dependencies": {
     "@react-native-community/masked-view": "0.1.10",
     "axios": "^0.20.0",
+    "debounce": "^1.2.0",
     "expo": "~38.0.8",
     "expo-av": "~8.2.1",
     "expo-notifications": "~0.3.3",

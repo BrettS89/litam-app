@@ -60,6 +60,20 @@ export async function getAlarmMessage(alarmId) {
   return response.data;
 }
 
+export async function createAlarmMessage(body) {
+  const res = await fetch(`${URI}/alarmmessage/create`, {
+    method: 'POST',
+    headers: {
+      'authorization': await getToken(),
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body)
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}
+
 export async function getMyAlarms() {
   const res = await fetch(`${URI}/alarms/myalarms`, {
     method: 'GET',

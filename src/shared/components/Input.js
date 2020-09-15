@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '800',
     flex: 10,
+    paddingTop: 5
   },
   container: {
     height: 40,

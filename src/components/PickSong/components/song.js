@@ -2,10 +2,12 @@ import React from 'react';
 import { View, TouchableOpacity, ImageBackground } from 'react-native';
 import Txt from '../../Txt';
 import styles from '../styles';
+import colors from '../../../shared/styles/colors';
 import Player from 'react-native-vector-icons/FontAwesome';
 import Pause from 'react-native-vector-icons/MaterialIcons';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const Song = ({ song: { song, artist, albumArt, audio }, play, pause, playing, playingId }) => {
+const Song = ({ song: { id, song, artist, albumArt, audio }, play, pause, playing, playingId, selected, setSelected }) => {
   const renderTitle = () => {
     return song.length > 37
       ? `${song.substring(0, 37)}...`
@@ -36,6 +38,21 @@ const Song = ({ song: { song, artist, albumArt, audio }, play, pause, playing, p
     );
   };
 
+  function renderSelected() {
+    if (selected === id) {
+      return (
+      <TouchableOpacity style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Icon name="checkbox-blank-circle" size={25} color={colors.main} />
+      </TouchableOpacity>
+      );
+    }
+    return (
+      <TouchableOpacity style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }} onPress={() => setSelected(id)}>
+        <Icon name="checkbox-blank-circle-outline" size={25} color={colors.main} />
+      </TouchableOpacity>
+    )
+  }
+
   return (
     <View style={styles.song}>
       <View style={{ flexDirection: 'row', width: '80%'  }}>
@@ -53,6 +70,7 @@ const Song = ({ song: { song, artist, albumArt, audio }, play, pause, playing, p
           <Txt moreStyles={styles.artist}>{renderArtist()}</Txt>
         </View>
       </View>
+      {renderSelected()}
     </View>
   );
 };

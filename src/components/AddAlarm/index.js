@@ -13,7 +13,7 @@ const AddAlarm = props => {
   const [days, setDays] = useState([
     { day: 'Sunday', repeat: false, abrev: 'Sun' },
     { day: 'Monday', repeat: false, abrev: 'Mon' },
-    { day: 'Tuesday', repeat: false, abrev: 'Tues' },
+    { day: 'Tuesday', repeat: false, abrev: 'Tue' },
     { day: 'Wednesday', repeat: false, abrev: 'Wed' },
     { day: 'Thursday', repeat: false, abrev: 'Thurs' },
     { day: 'Friday', repeat: false, abrev: 'Fri' },

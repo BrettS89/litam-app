@@ -10,6 +10,7 @@ import colors from '../shared/styles/colors';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import HeaderBack from '../shared/components/HeaderBack';
 import Logo from '../shared/components/Logo';
+import NextButton from '../shared/components/NextButton';
 
 import Auth from '../components/Auth';
 import Landing from '../components/Landing';
@@ -39,7 +40,7 @@ const mainNav = createBottomTabNavigator({
         screen: PickSong,
         navigationOptions: {
           headerLeft: () => <HeaderBack screen="Alarms" />,
-          headerRight: () => null,
+          headerRight: () => <NextButton />,
           headerTitle: () => <View><Text style={{ fontSize: 22, fontWeight: '900', color: colors.white }}>Pick a song</Text></View>,
           headerStyle: {
             shadowOffset: { height: 0, width: 0 },
