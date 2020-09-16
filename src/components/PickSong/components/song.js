@@ -7,7 +7,7 @@ import Player from 'react-native-vector-icons/FontAwesome';
 import Pause from 'react-native-vector-icons/MaterialIcons';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const Song = ({ song: { id, song, artist, albumArt, audio }, play, pause, playing, playingId, selected, setSelected }) => {
+const Song = ({ song: { id, song, artist, albumArt, audio }, play, pause, isPlaying, playingId, selected, setSelected }) => {
   const renderTitle = () => {
     return song.length > 37
       ? `${song.substring(0, 37)}...`
@@ -21,7 +21,7 @@ const Song = ({ song: { id, song, artist, albumArt, audio }, play, pause, playin
   };
 
   const renderPlayOrPause = () => {
-    if (playing && playingId === song._id) {
+    if (isPlaying && playingId === id) {
       return  (
         <TouchableOpacity style={styles.actionButton} onPress={() => pause()}>
           <Pause name="pause-circle-filled" size={60} color={'rgba(255, 255, 255, 0.6)'} />
@@ -31,7 +31,7 @@ const Song = ({ song: { id, song, artist, albumArt, audio }, play, pause, playin
     return (
       <TouchableOpacity
         style={styles.actionButton}
-        onPress={() => play({ _id: song._id, audio, genre, playlist_id: _id })}
+        onPress={() => play(audio, id)}
       >
         <Player name="play-circle" size={55} color={'rgba(255, 255, 255, 0.7)'} />
       </TouchableOpacity>

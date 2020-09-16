@@ -5,6 +5,21 @@ import styles from './styles';
 import Button from '../../shared/components/Button';
 
 const AlarmModalView = ({ alarmState, alarmState: { alarmMessage }, wakeUp }) => {
+  function renderMessage() {
+    if (alarmMessage.message) {
+      return (
+          <View style={styles.messageView}>
+            <Txt moreStyles={{ fontSize: 13, fontWeight: '700', textAlign: 'center', marginBottom: 7 }}>
+              Message from {alarmMessage.user.firstName}:
+            </Txt>
+            <Txt moreStyles={styles.messageText}>
+              "{alarmMessage.message}"
+            </Txt>
+          </View>
+      );
+    }
+  }
+
   return alarmMessage.user
     ? (
         <Modal visible={alarmState.alarmModalOpen} animated={true} animationType={'slide'}>
@@ -19,16 +34,13 @@ const AlarmModalView = ({ alarmState, alarmState: { alarmMessage }, wakeUp }) =>
               <View style={styles.usernameSection}>
                 <View style={styles.messageFrom}>
                   <Txt moreStyles={styles.fromText}>
-                    {`Message `} 
+                    Song sent from
                   </Txt>
-                  <Txt moreStyles={styles.fromText}>
-                    from 
-                  </Txt>
+
                 </View>
                 <View style={styles.usernameView}>
-                  
                   <Txt moreStyles={styles.nameText}>
-                    {` ${alarmMessage.user.firstName} `} 
+                    {`${alarmMessage.user.firstName} `} 
                   </Txt>
                   <Txt moreStyles={styles.nameText}>
                     {alarmMessage.user.lastName}
@@ -36,24 +48,15 @@ const AlarmModalView = ({ alarmState, alarmState: { alarmMessage }, wakeUp }) =>
                 </View>
               </View>
 
-              <View style={styles.messageView}>
-                <Txt moreStyles={styles.messageText}>
-                  "{alarmMessage.message}"
-                </Txt>
-              </View>
+              {renderMessage()}
 
-              <View style={{ width: '100%', marginBottom: 15 }}>
-                <Txt moreStyles={{ fontSize: 13, fontWeight: '700' }}>
-                  {alarmMessage.user.firstName} picked this song to wake you up:
-                </Txt>
-              </View>
               <View style={styles.songView}>
                 <Image 
                   source={{ uri: alarmMessage.song.albumArt }}
                   style={styles.albumArt}
                   resizeMode="cover"
                 />
-                <View>
+                <View style={styles.songContent}>
                   <Txt moreStyles={styles.songText}>
                     {alarmMessage.song.song}
                   </Txt>

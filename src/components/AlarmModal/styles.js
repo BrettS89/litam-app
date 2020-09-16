@@ -22,14 +22,13 @@ export default StyleSheet.create({
     marginBottom: 40,
   },
   usernameView: {
-    // flex: 1,
     flexDirection: 'row',
+    justifyContent: 'center',
     marginTop: 5
   },
   messageFrom: {
     flexDirection: 'row',
     justifyContent: 'center',
-
   },
   fromText: {
     color: colors.main,
@@ -58,8 +57,12 @@ export default StyleSheet.create({
     width: 120,
     height: 120,
     borderRadius: 4,
-    marginBottom: 10,
+    marginBottom: 0,
     marginRight: 10
+  },
+  songContent: {
+    flex: 1,
+    justifyContent: 'center'
   },
   songText: {
     fontSize: 18,
