@@ -25,7 +25,17 @@ const Alarm  = ({ alarm, alarm: { user, userWhoSetMessage }, navigateToPickSong 
       <Txt moreStyles={styles.cta}>
         @{userWhoSetMessage} set the song for this alarm
       </Txt>
-    )
+    );
+  }
+
+  function renderButton() {
+    if (!userWhoSetMessage) {
+      return (
+        <TouchableOpacity onPress={() => navigateToPickSong(alarm._id)}>
+          <Icon name="alarm-note" size={50} color={colors.secondary} />
+        </TouchableOpacity>
+      )
+    }
   }
 
   return (
@@ -41,14 +51,9 @@ const Alarm  = ({ alarm, alarm: { user, userWhoSetMessage }, navigateToPickSong 
               Set an alarm for {alarm.day} {alarm.displayTime} {alarm.amPm}
             </Txt>
             {renderSetText()}
-            {/* <Txt moreStyles={styles.cta}>
-              Pick the song this alarm will play ->
-            </Txt> */}
           </View>
         </View>
-        <TouchableOpacity onPress={() => navigateToPickSong(alarm._id)}>
-          <Icon name="alarm-note" size={50} color={colors.secondary} />
-        </TouchableOpacity>
+        {renderButton()}
       </View>
     </View>
   );

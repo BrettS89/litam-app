@@ -8,6 +8,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createStackNavigator } from 'react-navigation-stack';
 import colors from '../shared/styles/colors';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+
 import HeaderBack from '../shared/components/HeaderBack';
 import Logo from '../shared/components/Logo';
 import NextButton from '../shared/components/NextButton';
@@ -20,6 +21,7 @@ import AddAlarm from '../components/AddAlarm';
 import PickSong from '../components/PickSong';
 import Alarms from '../components/Alarms';
 import WriteMessage from '../components/WriteMessage';
+import Messages from '../components/Messages';
 
 const mainNav = createBottomTabNavigator({
   Alarms: {
@@ -102,6 +104,29 @@ const mainNav = createBottomTabNavigator({
       activeTintColor: colors.main,
       tabBarIcon: ({ tintColor }) => (
         <Icon name="clock" size={22} color={tintColor}/>
+      )
+    }
+  },
+  Messages: {
+    screen: createStackNavigator({
+      Messages: {
+        screen: Messages,
+        navigationOptions: {
+          headerLeft: () => <Logo width={75} moreStyles={{ marginLeft: 15 }} />,
+          headerRight: () => null,
+          headerTitle: () => null,
+          headerStyle: {
+            shadowOffset: { height: 0, width: 0 },
+            backgroundColor: colors.black,
+          }
+        },
+      },
+    }),
+    navigationOptions: {
+      title: 'Message history',
+      activeTintColor: colors.main,
+      tabBarIcon: ({ tintColor }) => (
+        <Icon name="comment-dots" size={26} color={tintColor}/>
       )
     }
   },

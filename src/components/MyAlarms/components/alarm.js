@@ -5,13 +5,13 @@ import Txt from '../../Txt';
 import colors from '../../../shared/styles/colors';
 import Icon from 'react-native-vector-icons/Entypo';
 
-const Alarm = ({ alarm }) => {
+const Alarm = ({ alarm, toggleActive, toggleModal }) => {
   const days = [
     { day: 'Sun', letter: 'S' },
     { day: 'Mon', letter: 'M' },
     { day: 'Tue', letter: 'T' },
     { day: 'Wed', letter: 'W' },
-    { day: 'Thurs', letter: 'T' },
+    { day: 'Thu', letter: 'T' },
     { day: 'Fri', letter: 'F' },
     { day: 'Sat', letter: 'S' },
   ];
@@ -24,8 +24,16 @@ const Alarm = ({ alarm }) => {
       }
       return (
         <Txt key={d.day} moreStyles={styles.day}>{d.letter}</Txt>
-      )
-    })
+      );
+    });
+  }
+
+  function toggleAlarmActive() {
+    toggleActive(alarm._id);
+  }
+
+  function toggleAlarmModal() {
+    toggleModal(alarm._id)
   }
 
   return (
@@ -46,9 +54,10 @@ const Alarm = ({ alarm }) => {
       <View style={styles.right}>
         <Switch
           trackColor={{ false: "#767577", true: colors.main }}
-          value={true}
+          value={alarm.active}
+          onValueChange={toggleAlarmActive}
         />
-        <TouchableOpacity style={{ marginLeft: 10 }}>
+        <TouchableOpacity style={{ marginLeft: 10 }} onPress={toggleAlarmModal}>
           <Icon name="dots-three-vertical" size={24} color={colors.white} />
         </TouchableOpacity>
       </View>

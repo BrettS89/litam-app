@@ -48,6 +48,30 @@ export async function addAlarm(body) {
   return response.data;
 }
 
+export async function toggleActive(alarmId) {
+  const res = await fetch(`${URI}/alarm/toggleactive/${alarmId}`, {
+    method: 'PATCH',
+    headers: {
+      'authorization': await getToken(),
+    },
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}
+
+export async function deleteAlarm(alarmId) {
+  const res = await fetch(`${URI}/alarm/${alarmId}`, {
+    method: 'DELETE',
+    headers: {
+      'authorization': await getToken(),
+    },
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}
+
 export async function getAlarmMessage(alarmId) {
   const res = await fetch(`${URI}/alarmmessage/${alarmId}`, {
     method: 'GET',
@@ -104,6 +128,18 @@ export async function getSongs(term) {
     : `${URI}/songs/undefined`;
   
   const res = await fetch(uri, {
+    method: 'GET',
+    headers: {
+      'authorization': await getToken(),
+    },
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}
+
+export async function getMessages() {
+  const res = await fetch(`${URI}/messages`, {
     method: 'GET',
     headers: {
       'authorization': await getToken(),

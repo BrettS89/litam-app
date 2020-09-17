@@ -1,8 +1,7 @@
 import React from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import styles from './styles';
 import Button from '../../shared/components/Button';
-import Txt from '../Txt';
 import TextBox from '../../shared/components/TextBox';
 
 const WriteMessageView = ({ setMessage, submitAlarmMessage }) => {
@@ -14,13 +13,13 @@ const WriteMessageView = ({ setMessage, submitAlarmMessage }) => {
           onChangeText={e => setMessage(e)}
         />
       </View>
-      <View style={styles.buttonView}>
+      <ScrollView style={styles.buttonView} scrollEnabled={false} contentContainerStyle={{ alignItems: 'center' }} keyboardShouldPersistTaps="always">
         <Button
           buttonStyle={styles.buttonStyle}
           text="Finish"
           onPress={submitAlarmMessage}
         />
-      </View>
+      </ScrollView>
     </View>
   );
 };

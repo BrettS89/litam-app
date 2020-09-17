@@ -15,7 +15,7 @@ const AddAlarm = props => {
     { day: 'Monday', repeat: false, abrev: 'Mon' },
     { day: 'Tuesday', repeat: false, abrev: 'Tue' },
     { day: 'Wednesday', repeat: false, abrev: 'Wed' },
-    { day: 'Thursday', repeat: false, abrev: 'Thurs' },
+    { day: 'Thursday', repeat: false, abrev: 'Thu' },
     { day: 'Friday', repeat: false, abrev: 'Fri' },
     { day: 'Saturday', repeat: false, abrev: 'Sat' },
   ]);

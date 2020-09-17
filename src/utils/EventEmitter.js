@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import triggerAlarm from './triggerAlarm';
 import { getIsoDate } from './date';
+import { alarmsState } from '../redux/selectors';
 
 class EventEmitter {
   constructor() {
@@ -8,8 +9,9 @@ class EventEmitter {
       // '08 00': [
       //   {
       //     _id: '001',
-      //     days: ['Mon', 'Tues', 'Weds', 'Thurs', 'Fri'],
+      //     days: ['Mon', 'Tue', 'Weds', 'Thu', 'Fri'],
       //     day: 'Sun',
+      //     active:  true
       //     time: '08 00',
       //     displayTime: '8:00',
       //     ampm: 'AM',
@@ -34,7 +36,7 @@ class EventEmitter {
     const today = new Date().toString().split(' ')[0];
 
     for (let a of arr) {
-      if (a.days.includes(today) || !a.days.length) {
+      if ((a.days.includes(today) || !a.days.length) && a.active) {
         if (!a.days.length) toDelete[a._id] = true;
         // run logic
         const didRing = await triggerAlarm(a);
@@ -54,6 +56,10 @@ class EventEmitter {
     })
     events[time] = updatedAlarms;
     this.events = events;
+  }
+
+  clear() {
+    this.events = {};
   }
 }
 

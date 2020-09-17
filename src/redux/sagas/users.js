@@ -26,6 +26,20 @@ function * loginHandler({ payload: { form, navigate } }) {
     const { user, token } = yield call(api.login, form);
     yield AsyncStorage.setItem('token', token);
     yield put({ type: actions.SET_USER_DATA, payload: user });
+
+    const promiseArr = [
+      api.getMyAlarms(),
+      api.getAlarms(),
+      api.getMessages(),
+    ];
+
+    const [{ myAlarms }, { alarms }, { messages }] = yield Promise.all(promiseArr);
+
+    alarms.forEach(a => setAlarmsInEmitter(a));
+    yield put({ type: actions.SET_MY_ALARMS, payload: myAlarms });
+    yield put({ type: actions.SET_ALARMS, payload: alarms });
+    yield put({ type: actions.SET_MESSAGES, payload: messages });
+
     navigate();
     yield put({ type: actions.APP_NOT_LOADING });
   } catch(e) {
@@ -38,14 +52,23 @@ function * isLoggedInHandler({ payload }) {
   try {
     const { user } = yield call(api.isLoggedIn);
     yield put({ type: actions.SET_USER_DATA, payload: user });
-    const { myAlarms } = yield call(api.getMyAlarms);
-    const { alarms } = yield call(api.getAlarms);
+
+    const promiseArr = [
+      api.getMyAlarms(),
+      api.getAlarms(),
+      api.getMessages(),
+    ];
+
+    const [{ myAlarms }, { alarms }, { messages }] = yield Promise.all(promiseArr);
+
     alarms.forEach(a => setAlarmsInEmitter(a));
     yield put({ type: actions.SET_MY_ALARMS, payload: myAlarms });
     yield put({ type: actions.SET_ALARMS, payload: alarms });
+    yield put({ type: actions.SET_MESSAGES, payload: messages });
     payload('MyAlarms');
   } catch(e) {
     console.log('isLoggedInHandler error', e);
     payload('Landing');
   }
 }
+

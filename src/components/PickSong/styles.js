@@ -31,7 +31,7 @@ export default StyleSheet.create({
     alignItems: 'center'
   },
   textContainer: {
-    // justifyContent: 'center',
+    justifyContent: 'center',
     flex: 1,
   },
   title: {

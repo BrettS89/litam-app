@@ -5,7 +5,7 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.black,
-    padding: 15
+    paddingHorizontal: 15
   },
   alarm: {
     flexDirection: 'row',
@@ -53,5 +53,51 @@ export default StyleSheet.create({
     width: 65,
     borderRadius: 50,
     backgroundColor: colors.main,
+  },
+
+  modalContainer: {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', 
+    flex: 1,
+    justifyContent: 'center', 
+    alignItems: 'center'
+  },
+  modalContentContainer: {
+    width: '70%',
+    backgroundColor: '#e0e0e0',
+    padding: 20,
+    paddingTop: 10,
+    alignItems: 'center',
+    borderRadius: 10,
+  },
+  exit: {
+    width: '100%',
+    alignItems: 'flex-end',
+    height: 27
+  },
+  deleteButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 15
+  },
+  deleteText: {
+    fontSize: 18,
+    fontWeight: '800',
+    color: colors.red,
   }
+  // modalTitle: {
+  //   fontWeight: '600',
+  //   fontSize: 20,
+  //   textAlign: 'center',
+  //   marginBottom: 30
+  // },
+  // tokensIcon: {
+  //   marginVertical: 25,
+  // },
+  // noThanksText: {
+  //   fontWeight: '700',
+  //   color: colors.main,
+  //   fontSize: 15,
+  // },
+
+
 });

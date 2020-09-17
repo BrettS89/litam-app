@@ -15,6 +15,6 @@ export default StyleSheet.create({
     height: 45,
   },
   buttonView: {
-    alignItems: 'center',
+    // alignItems: 'center',
   }
 });

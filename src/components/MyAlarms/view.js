@@ -5,15 +5,20 @@ import Txt from '../Txt';
 import Alarm from './components/alarm';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import colors from '../../shared/styles/colors';
+import DeleteAlarmModal from './components/deleteAlarmModal';
 
-const MyAlarmsView = ({ navigateToAddAlarm, alarms }) => {
+const MyAlarmsView = ({ navigateToAddAlarm, alarms, toggleActive, modalOpen, toggleModal, deleteAlarm }) => {
   return (
     <View style={styles.container}>
       <FlatList
         data={alarms}
         keyExtractor={alarm => alarm._id}
         renderItem={({ item }) => (
-          <Alarm alarm={item} />
+          <Alarm
+            alarm={item}
+            toggleActive={toggleActive}
+            toggleModal={toggleModal}
+          />
         )}
       />
 
@@ -22,6 +27,11 @@ const MyAlarmsView = ({ navigateToAddAlarm, alarms }) => {
           <Icon name="plus" size={22} color={colors.white} />
         </TouchableOpacity>
       </View>
+      <DeleteAlarmModal
+        modalOpen={modalOpen}
+        toggleModal={toggleModal}
+        deleteAlarm={deleteAlarm}
+      />
     </View>
   );
 };
