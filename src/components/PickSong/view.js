@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, View, FlatList } from 'react-native';
+import { ScrollView, View, FlatList, Keyboard } from 'react-native';
 import Txt from '../Txt';
 import styles from './styles';
 import Input from '../../shared/components/Input';
@@ -13,6 +13,7 @@ const PickSongView = ({ songs, selected, setSelected, searchSongs, play, pause, 
           labelText="music"
           placeholder="Search for a song"
           onChangeText={e => searchSongs(e)}
+          onSubmitHandler={() => Keyboard.dismiss()}
         />
       </View>
       <View style={{ flex: 1 }}>

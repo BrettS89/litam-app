@@ -29,6 +29,7 @@ const mainNav = createBottomTabNavigator({
       Alarms: {
         screen: Alarms,
         navigationOptions: {
+          headerShown: true,
           headerLeft: () => <Logo width={75} moreStyles={{ marginLeft: 15 }} />,
           headerRight: () => null,
           headerTitle: () => null,
@@ -41,6 +42,7 @@ const mainNav = createBottomTabNavigator({
       PickSong: {
         screen: PickSong,
         navigationOptions: {
+          headerShown: true,
           headerLeft: () => <HeaderBack screen="Alarms" />,
           headerRight: () => <NextButton />,
           headerTitle: () => <View><Text style={{ fontSize: 22, fontWeight: '900', color: colors.white }}>Pick a song</Text></View>,
@@ -53,6 +55,7 @@ const mainNav = createBottomTabNavigator({
       WriteMessage: {
         screen: WriteMessage,
         navigationOptions: {
+          headerShown: true,
           headerLeft: () => <HeaderBack screen="PickSong" />,
           headerRight: () => null,
           headerTitle: () => <View><Text style={{ fontSize: 22, fontWeight: '900', color: colors.white }}>Finish</Text></View>,
@@ -77,6 +80,7 @@ const mainNav = createBottomTabNavigator({
       MyAlarms: {
         screen: MyAlarms,
         navigationOptions: {
+          headerShown: true,
           headerLeft: () => <Logo width={75} moreStyles={{ marginLeft: 15 }} />,
           headerRight: () => null,
           headerTitle: () => null,
@@ -89,6 +93,7 @@ const mainNav = createBottomTabNavigator({
       AddAlarm: {
         screen: AddAlarm,
         navigationOptions: {
+          headerShown: true,
           headerLeft: () => <HeaderBack screen="MyAlarms" />,
           headerRight: () => null,
           headerTitle: () => <View><Text style={{ fontSize: 22, fontWeight: '900', color: colors.white }}>Add Alarm</Text></View>,
@@ -112,6 +117,7 @@ const mainNav = createBottomTabNavigator({
       Messages: {
         screen: Messages,
         navigationOptions: {
+          headerShown: true,
           headerLeft: () => <Logo width={75} moreStyles={{ marginLeft: 15 }} />,
           headerRight: () => null,
           headerTitle: () => null,

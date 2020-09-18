@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, Keyboard } from 'react-native';
 import styles from './styles';
 import Button from '../../shared/components/Button';
 import TextBox from '../../shared/components/TextBox';
@@ -11,6 +11,7 @@ const WriteMessageView = ({ setMessage, submitAlarmMessage }) => {
         <TextBox
           placeholder="Send a message with this alarm... (Optional)"
           onChangeText={e => setMessage(e)}
+          onSubmitHandler={() => Keyboard.dismiss()}
         />
       </View>
       <ScrollView style={styles.buttonView} scrollEnabled={false} contentContainerStyle={{ alignItems: 'center' }} keyboardShouldPersistTaps="always">

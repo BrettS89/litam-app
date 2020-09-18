@@ -40,6 +40,10 @@ const PickSong = props => {
 
   useEffect(() => {
     dispatch({ type: GET_SONGS });
+
+    return () => {
+      audio.unloadAsync();
+    }
   }, []);
 
   return (

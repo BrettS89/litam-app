@@ -3,6 +3,7 @@ import { Modal, View, SafeAreaView, Image } from 'react-native';
 import Txt from '../Txt';
 import styles from './styles';
 import Button from '../../shared/components/Button';
+import { USER_DEFAULT } from '../../../assets/images/';
 
 const AlarmModalView = ({ alarmState, alarmState: { alarmMessage }, wakeUp }) => {
   function renderMessage() {
@@ -28,6 +29,7 @@ const AlarmModalView = ({ alarmState, alarmState: { alarmMessage }, wakeUp }) =>
               <Image 
                 source={{ uri: alarmMessage.user.photo }}
                 style={styles.profileImage}
+                defaultSource={USER_DEFAULT}
                 resizeMode="cover"
               />
 
