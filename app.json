@@ -1,13 +1,12 @@
 {
   "expo": {
-    "name": "mobile_app",
-    "userInterfaceStyle": "dark",
-    "slug": "mobile_app",
+    "name": "lit_am",
+    "slug": "lit_am-prod",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/liticon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/litsplash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -18,7 +17,12 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.litam.lit",
+      "supportsTablet": true,
+      "splash": {
+        "image": "./assets/litsplash.png",
+        "resizeMode": "cover"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"

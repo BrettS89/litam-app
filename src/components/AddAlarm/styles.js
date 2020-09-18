@@ -10,7 +10,9 @@ export default StyleSheet.create({
   },
   timeView: {
     flexDirection: 'row',
+    width: '100%',
     alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: 0
   },
   ampm: {

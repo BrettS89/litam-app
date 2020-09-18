@@ -14,6 +14,7 @@ const TimeInput = ({ placeholder, value, onChangeText, autoFocus }) => {
         onChangeText={onChangeText}
         maxLength={2}
         autoFocus={autoFocus}
+        returnKeyType={'done'}
       />
     </View>
   );

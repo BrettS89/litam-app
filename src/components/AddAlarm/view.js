@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TouchableOpacity, ScrollView } from 'react-native';
+import { View, TouchableOpacity, ScrollView, TouchableWithoutFeedback } from 'react-native';
 import styles from './styles';
 import Txt from '../Txt';
 import TimeInput from './components/timeInput';
@@ -32,7 +32,7 @@ const AddAlarmView = ({ setHour, setMinutes, ampm, setAmpm, days, setRepeat, add
   }
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={{ alignItems: 'center' }} showsVerticalScrollIndicator={false}>
+    <ScrollView style={styles.container} contentContainerStyle={{ alignItems: 'center' }} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="always">
       <View style={styles.timeView}>
         <TimeInput placeholder="8" onChangeText={e => setHour(e)} autoFocus />
         <Txt moreStyles={{ fontSize: 52, fontWeight: '800', paddingBottom: 10 }}>:</Txt>

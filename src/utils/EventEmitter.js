@@ -31,7 +31,7 @@ class EventEmitter {
     const rang = [];
     const events = _.cloneDeep(this.events);
     const arr = events[time];
-    console.log(time);
+    // console.log(time);
     if (!arr) return;
     const today = new Date().toString().split(' ')[0];
 
