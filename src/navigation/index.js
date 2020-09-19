@@ -75,7 +75,6 @@ const mainNav = createBottomTabNavigator({
       )
     }
   },
-
   MyAlarms: {
     screen: createStackNavigator({
       MyAlarms: {
