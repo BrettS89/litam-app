@@ -8,7 +8,7 @@ export default StyleSheet.create({
     padding: 15,
   },
   alarm: {
-    marginBottom: 30,
+    marginVertical: 15,
   },
   userSection: {
     flexDirection: 'row',

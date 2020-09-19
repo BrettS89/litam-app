@@ -8,6 +8,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createStackNavigator } from 'react-navigation-stack';
 import colors from '../shared/styles/colors';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import Alarm from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import HeaderBack from '../shared/components/HeaderBack';
 import Logo from '../shared/components/Logo';
@@ -29,7 +30,7 @@ const mainNav = createBottomTabNavigator({
       Alarms: {
         screen: Alarms,
         navigationOptions: {
-          headerShown: true,
+          headerShown: false,
           headerLeft: () => <Logo width={75} moreStyles={{ marginLeft: 15 }} />,
           headerRight: () => null,
           headerTitle: () => null,
@@ -80,7 +81,7 @@ const mainNav = createBottomTabNavigator({
       MyAlarms: {
         screen: MyAlarms,
         navigationOptions: {
-          headerShown: true,
+          headerShown: false,
           headerLeft: () => <Logo width={75} moreStyles={{ marginLeft: 15 }} />,
           headerRight: () => null,
           headerTitle: () => null,
@@ -108,7 +109,7 @@ const mainNav = createBottomTabNavigator({
       title: 'My Alarms',
       activeTintColor: colors.main,
       tabBarIcon: ({ tintColor }) => (
-        <Icon name="clock" size={22} color={tintColor}/>
+        <Alarm name="alarm-multiple" size={28} color={tintColor}/>
       )
     }
   },
@@ -117,7 +118,7 @@ const mainNav = createBottomTabNavigator({
       Messages: {
         screen: Messages,
         navigationOptions: {
-          headerShown: true,
+          headerShown: false,
           headerLeft: () => <Logo width={75} moreStyles={{ marginLeft: 15 }} />,
           headerRight: () => null,
           headerTitle: () => null,

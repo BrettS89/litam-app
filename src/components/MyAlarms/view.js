@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, FlatList } from 'react-native';
 import styles from './styles';
 import Txt from '../Txt';
+import LogoHeader from '../../shared/components/LogoHeader';
 import Alarm from './components/alarm';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import colors from '../../shared/styles/colors';
@@ -10,6 +11,7 @@ import DeleteAlarmModal from './components/deleteAlarmModal';
 const MyAlarmsView = ({ navigateToAddAlarm, alarms, toggleActive, modalOpen, toggleModal, deleteAlarm }) => {
   return (
     <View style={styles.container}>
+      <LogoHeader />
       <FlatList
         data={alarms}
         keyExtractor={alarm => alarm._id}

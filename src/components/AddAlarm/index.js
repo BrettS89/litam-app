@@ -4,6 +4,7 @@ import _ from 'lodash';
 import View from './view';
 import getDay from '../../utils/getDay';
 import { ADD_ALARM } from '../../redux/actions';
+import alert from '../../utils/alert';
 
 const AddAlarm = props => {
   const dispatch = useDispatch();
@@ -31,12 +32,17 @@ const AddAlarm = props => {
   }
 
   function addAlarm() {
+    if (Number(hour) > 12 || Number(minutes) > 59) {
+      alert('Hold up', 'Please enter a valid time');
+      return;
+    }
     const repeatDays = days.map(d => {
       if (d.repeat) return d.abrev;
     }).filter(d => !!d);
     const displayTime = `${hour}:${minutes}`;
-    const displayAmPm = ampm;
-    let hourTime = ampm === 'PM' ? `${Number(hour) + 12}` : hour;
+
+    let hourTime = (ampm === 'PM' && Number(hour) !== 12) ? `${Number(hour) + 12}` : hour;
+    
     if (hourTime.length === 1) hourTime = `0${hourTime}`;
     const alarm = {
       displayTime,
