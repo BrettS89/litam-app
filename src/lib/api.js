@@ -84,6 +84,18 @@ export async function getAlarmMessage(alarmId) {
   return response.data;
 }
 
+export async function stopAlarm() {
+  const res = await fetch(`${URI}/alarmmessage/stop`, {
+    method: 'PATCH',
+    headers: {
+      'authorization': await getToken(),
+    },
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}
+
 export async function createAlarmMessage(body) {
   const res = await fetch(`${URI}/alarmmessage/create`, {
     method: 'POST',

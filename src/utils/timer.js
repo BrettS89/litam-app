@@ -6,4 +6,4 @@ export default setInterval(() => {
   currentTime.pop();
   currentTime = currentTime.join(':');
   eventEmitter.emit(currentTime);
-}, 3000);
+}, 3000000000000000000);

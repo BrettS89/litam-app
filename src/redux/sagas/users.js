@@ -53,6 +53,12 @@ function * isLoggedInHandler({ payload }) {
     const { user } = yield call(api.isLoggedIn);
     yield put({ type: actions.SET_USER_DATA, payload: user });
 
+    let alarmMessage = null
+    if (user.isPlaying) {
+      const data = yield api.getAlarmMessage(user.isPlaying);
+      alarmMessage = data.alarmMessage;
+    }
+    
     const promiseArr = [
       api.getMyAlarms(),
       api.getAlarms(),
@@ -66,6 +72,8 @@ function * isLoggedInHandler({ payload }) {
     yield put({ type: actions.SET_ALARMS, payload: alarms });
     yield put({ type: actions.SET_MESSAGES, payload: messages });
     payload('MyAlarms');
+    if (alarmMessage)
+      yield put({ type: actions.SOUND_ALARM, payload: alarmMessage });
   } catch(e) {
     console.log('isLoggedInHandler error', e);
     payload('Landing');
