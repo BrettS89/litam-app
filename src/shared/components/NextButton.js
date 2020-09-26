@@ -12,7 +12,7 @@ const HeaderBack = ({ navigation, screen, moreStyles={} }) => {
   function renderButton() {
     if (songId) {
       return (
-        <TouchableOpacity style={[styles.button, moreStyles]} onPress={() => navigation.navigate('WriteMessage')}>
+        <TouchableOpacity style={[styles.button, moreStyles]} onPress={() => navigation.navigate(screen)}>
           <Txt moreStyles={styles.nextText}>
             Next
           </Txt>

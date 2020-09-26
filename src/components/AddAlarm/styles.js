@@ -26,22 +26,43 @@ export default StyleSheet.create({
   daySection: {
     width: '100%',
     paddingHorizontal: 15,
-    marginBottom: 45
+    marginBottom: 27
   },
   day: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 13,
+    paddingVertical: 10,
     borderBottomColor: colors.white,
     borderBottomWidth: 1
   },
   dayText: {
-    fontSize: 15,
-    fontWeight: '800',
+    fontSize: 14,
+    fontWeight: '700',
     marginLeft: 6,
   },
   buttonView: {
     marginBottom: 70,
+  },
+  public: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  icon: {
+    marginRight: 6,
+  },
+  publicText: {
+    fontSize: 18,
+    fontWeight: '800'
+  },
+  addSongButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 27
+  },
+  songText: {
+    fontSize: 16,
+    fontWeight: '800',
+    marginLeft: 9
   }
 });

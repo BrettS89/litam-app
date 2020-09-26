@@ -45,7 +45,7 @@ const mainNav = createBottomTabNavigator({
         navigationOptions: {
           headerShown: true,
           headerLeft: () => <HeaderBack screen="Alarms" />,
-          headerRight: () => <NextButton />,
+          headerRight: () => <NextButton screen="WriteMessage" />,
           headerTitle: () => <View><Text style={{ fontSize: 22, fontWeight: '900', color: colors.white }}>Pick a song</Text></View>,
           headerStyle: {
             shadowOffset: { height: 0, width: 0 },
@@ -97,6 +97,19 @@ const mainNav = createBottomTabNavigator({
           headerLeft: () => <HeaderBack screen="MyAlarms" />,
           headerRight: () => null,
           headerTitle: () => <View><Text style={{ fontSize: 22, fontWeight: '900', color: colors.white }}>Add Alarm</Text></View>,
+          headerStyle: {
+            shadowOffset: { height: 0, width: 0 },
+            backgroundColor: colors.black,
+          }
+        },
+      },
+      PickSong2: {
+        screen: PickSong,
+        navigationOptions: {
+          headerShown: true,
+          headerLeft: () => <HeaderBack screen="AddAlarm" />,
+          headerRight: () => <NextButton screen={"AddAlarm"} />,
+          headerTitle: () => <View><Text style={{ fontSize: 22, fontWeight: '900', color: colors.white }}>Pick a song</Text></View>,
           headerStyle: {
             shadowOffset: { height: 0, width: 0 },
             backgroundColor: colors.black,

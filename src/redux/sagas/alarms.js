@@ -41,7 +41,10 @@ function * addAlarmHandler({ payload: { alarm, navigate } }) {
       day: alarm.day,
       days: alarm.days,
       amPm: alarm.amPm,
+      isPublic: alarm.isPublic,
+      defaultSong: alarm.defaultSong,
     };
+
     const data = yield call(api.addAlarm, body);
     const a = data.alarm;
 

@@ -58,7 +58,7 @@ function * isLoggedInHandler({ payload }) {
       const data = yield api.getAlarmMessage(user.isPlaying);
       alarmMessage = data.alarmMessage;
     }
-    
+
     const promiseArr = [
       api.getMyAlarms(),
       api.getAlarms(),
