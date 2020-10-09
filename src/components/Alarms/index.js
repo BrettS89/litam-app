@@ -12,7 +12,6 @@ const Alarms = props => {
   }, []);
 
   function navigateToPickSong(alarmId) {
-    console.log(alarmId);
     dispatch({ type: SET_ALARM_ID, payload: alarmId })
     props.navigation.navigate('PickSong');
   }

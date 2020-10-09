@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollView, View, FlatList, Keyboard } from 'react-native';
 import Txt from '../Txt';
 import styles from './styles';
-import Input from '../../shared/components/Input';
+import Input from '../../shared/components/Input2';
 import Song from './components/song';
 
 const PickSongView = ({ songs, selected, setSelected, searchSongs, play, pause, isPlaying, playingId }) => {

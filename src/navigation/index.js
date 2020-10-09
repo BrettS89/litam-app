@@ -17,6 +17,7 @@ import NextButton from '../shared/components/NextButton';
 import Auth from '../components/Auth';
 import Landing from '../components/Landing';
 import Login from '../components/Login';
+import Registration from '../components/Registration';
 import MyAlarms from '../components/MyAlarms';
 import AddAlarm from '../components/AddAlarm';
 import PickSong from '../components/PickSong';
@@ -179,6 +180,29 @@ const noBottomNav = createBottomTabNavigator({
         navigationOptions: {
           headerLeft: () => <HeaderBack screen={'Landing'} />,
           headerTitle: () => <View><Text style={{ fontSize: 22, fontWeight: '900', color: colors.white }}>Login</Text></View>,
+          headerRight: () => null,
+          headerStyle: {
+            shadowOffset: { height: 0, width: 0 },
+            backgroundColor: colors.black,
+          }
+        },
+      },
+    }),
+    navigationOptions: {
+      title: 'Login',
+      activeTintColor: colors.main,
+      tabBarIcon: ({ tintColor }) => (
+        <Icon name="clock" size={28} color={tintColor}/>
+      )
+    }
+  },
+  Registration: {
+    screen: createStackNavigator({
+      Registration: {
+        screen: Registration,
+        navigationOptions: {
+          headerLeft: () => <HeaderBack screen={'Landing'} />,
+          headerTitle: () => <View><Text style={{ fontSize: 22, fontWeight: '900', color: colors.white }}>Registration</Text></View>,
           headerRight: () => null,
           headerStyle: {
             shadowOffset: { height: 0, width: 0 },

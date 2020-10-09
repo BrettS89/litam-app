@@ -9,6 +9,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-redux';
 import store from './src/redux';
 import Navigation from './src/navigation';
+import LoadingModal from './src/shared/components/LoadingModal';
 import './src/utils/timer';
 
 import AlarmModal from './src/components/AlarmModal';
@@ -21,6 +22,7 @@ export default function App() {
         <StatusBar style="light" />
         <Navigation />
         <AlarmModal />
+        <LoadingModal />
       </View>
     </Provider>
   );

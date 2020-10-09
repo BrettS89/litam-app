@@ -28,12 +28,12 @@ export default StyleSheet.create({
     color: colors.secondary
   },
   alarmText: {
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '800',
     marginBottom: 3
   },
   cta: {
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: '600',
     marginBottom: 3,
     color: colors.white,

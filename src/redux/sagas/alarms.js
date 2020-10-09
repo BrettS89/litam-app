@@ -106,7 +106,6 @@ function * removeAlarmFromStateHandler({ payload }) {
 
 function * deleteAlarmHandler({ payload }) {
   try {
-    console.log(payload);
     const { alarmId } = yield call(api.deleteAlarm, payload);
     const myAlarmsReduxState = yield select(myAlarmsState);
     const myAlarmsStateClone = _.cloneDeep(myAlarmsReduxState);

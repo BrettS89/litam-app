@@ -17,7 +17,7 @@ const Alarm  = ({ alarm, alarm: { user, userWhoSetMessage }, navigateToPickSong 
     if (!userWhoSetMessage) {
       return (
         <Txt moreStyles={styles.cta}>
-          Pick the song this alarm will play ->
+          Pick the song this alarm will play
         </Txt>
       );
     }
@@ -41,9 +41,9 @@ const Alarm  = ({ alarm, alarm: { user, userWhoSetMessage }, navigateToPickSong 
   return (
     <View style={styles.alarm}>
       <View style={styles.userSection}>
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
           {renderProfilePhoto()}
-          <View>
+          <View style={{ width: '75%' }}>
             <Txt moreStyles={styles.username}>
               @{user.userName}
             </Txt>

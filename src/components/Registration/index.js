@@ -1,19 +1,34 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { View, TouchableOpacity, Keyboard } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import styles from './styles';
-import { ON_LOGIN } from '../../redux/actions';
+import { ON_REGISTER } from '../../redux/actions';
 import colors from '../../shared/styles/colors';
 import Input from '../../shared/components/Input';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const Login = props => {
+const Registration = props => {
   const dispatch = useDispatch();
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   function onSubmit() {
-    dispatch({ type: ON_LOGIN, payload: { form: { email, password }, navigate, } });
+    dispatch({ 
+      type: ON_REGISTER,
+      payload: { 
+        form: { 
+          email,
+          password,
+          firstName,
+          lastName,
+          userName
+        },
+        navigate,
+      }
+    });
   }
 
   function navigate() {
@@ -22,6 +37,30 @@ const Login = props => {
 
   return (
     <View style={styles.container}>
+      <View style={styles.inputView}>
+        <Input
+          labelText="firstname"
+          placeholder="First name"
+          onChangeText={setFirstName}
+          onSubmitHandler={() => Keyboard.dismiss()}
+        />
+      </View>
+      <View style={styles.inputView}>
+        <Input
+          labelText="lastname"
+          placeholder="Last name"
+          onChangeText={setLastName}
+          onSubmitHandler={() => Keyboard.dismiss()}
+        />
+      </View>
+      <View style={styles.inputView}>
+        <Input
+          labelText="username"
+          placeholder="Username"
+          onChangeText={setUserName}
+          onSubmitHandler={() => Keyboard.dismiss()}
+        />
+      </View>
       <View style={styles.inputView}>
         <Input
           labelText="email"
@@ -50,4 +89,4 @@ const Login = props => {
   );
 };
 
-export default Login;
+export default Registration;

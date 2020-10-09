@@ -21,6 +21,19 @@ export async function isLoggedIn() {
   return response.data;
 }
 
+export async function register(body) {
+  const res = await fetch(`${URI}/user/register`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}
+
 export async function login(body) {
   const res = await fetch(`${URI}/user/login`, {
     method: 'PATCH',

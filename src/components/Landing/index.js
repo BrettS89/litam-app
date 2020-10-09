@@ -8,11 +8,10 @@ const Landing = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.logoView}>
-        {/* <Text style={styles.logo}>LIT AM</Text> */}
         <Logo />
       </View>
       
-      <Button text="Sign up" buttonStyle={styles.buttonStyle} />
+      <Button text="Sign up" buttonStyle={styles.buttonStyle} onPress={() => navigation.navigate('Registration')} />
       <Button text="Login" buttonStyle={styles.buttonStyle} onPress={() => navigation.navigate('Login')} />
     </View>
   );

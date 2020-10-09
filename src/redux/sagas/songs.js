@@ -15,7 +15,6 @@ function * getSongsWatcher() {
 
 function * getSongsHandler({ payload }) {
   try {
-    console.log('INNN');
     yield put({ type: actions.APP_LOADING });
     const { songs } = yield call(api.getSongs, payload);
     yield put({ type: actions.SET_SONGS, payload: songs });
