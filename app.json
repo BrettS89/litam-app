@@ -2,7 +2,7 @@
   "expo": {
     "name": "lit_am",
     "slug": "lit_am-prod",
-    "version": "1.0.3",
+    "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/liticon.png",
     "splash": {

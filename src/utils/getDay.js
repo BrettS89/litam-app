@@ -16,7 +16,6 @@ export default (hour, minutes, days) => {
   }
 
   const idx = weekdays.indexOf(todaysWeekday);
-  let weekday = null;
 
   // today Sat
   // next index Mon
@@ -30,9 +29,15 @@ export default (hour, minutes, days) => {
   }
 
   if (currentTime > timeToSet) {
-    if (todaysWeekday === 'Sat' && days.includes('Sun')) return 'Sun';
-    const i = weekdays.indexOf(todaysWeekday);
-    return weekdays[i + 1];
+    for (let i = idx; idx < days.length; i++) {
+      if (days.includes(weekdays[i])) return weekdays[i];
+    }
+    for (let i = 0; i < weekdays.length; i++) {
+      if (days.includes(weekdays[i])) return weekdays[i];
+    }
+    // if (todaysWeekday === 'Sat' && days.includes('Sun')) return 'Sun';
+    // const i = weekdays.indexOf(todaysWeekday);
+    // return weekdays[i + 1];
   }
   return todaysWeekday;
 };

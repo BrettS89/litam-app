@@ -15,6 +15,7 @@ const Alarm = ({ alarm, toggleActive, toggleModal }) => {
     { day: 'Fri', letter: 'F' },
     { day: 'Sat', letter: 'S' },
   ];
+
   function renderDays() {
     return days.map(d => {
       if (alarm.days.includes(d.day) || alarm.day === d.day) {

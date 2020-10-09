@@ -5,19 +5,18 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.black,
-    padding: 15,
-    // alignItems: 'center'
+    paddingHorizontal: 15,
   },
   timeView: {
     flexDirection: 'row',
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 0
+    marginTop: 0
   },
   ampm: {
     flexDirection: 'row',
-    marginBottom: 30
+    marginBottom: 15
   },
   ampmText: {
     fontSize: 30,
@@ -32,7 +31,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 10,
+    paddingVertical: 9,
     borderBottomColor: colors.white,
     borderBottomWidth: 1
   },
