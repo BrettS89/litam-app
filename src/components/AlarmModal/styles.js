@@ -80,5 +80,10 @@ export default StyleSheet.create({
   buttonStyles: {
     width: 200,
     height: 45
+  },
+  buttonStyles2: {
+    width: 200,
+    height: 45,
+    marginBottom: 15,
   }
 });

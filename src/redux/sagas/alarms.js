@@ -134,6 +134,7 @@ function * deleteAlarmHandler({ payload }) {
 function * snoozeHandler({ payload }) {
   try {
     // yield put({ type: actions.CLOSE_ALARM_MODAL });
+    console.log('SNOOZE TIME', getTimeForSnooze());
     const snoozedAlarm = {
       _id: 'snooze',
       active: true,

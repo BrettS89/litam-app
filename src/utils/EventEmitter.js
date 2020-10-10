@@ -31,8 +31,6 @@ class EventEmitter {
     const rang = [];
     const events = _.cloneDeep(this.events);
     const arr = events[time];
-    // console.log(time);
-    // console.log(arr);
     if (!arr) return;
     const today = new Date().toString().split(' ')[0];
 
@@ -46,7 +44,7 @@ class EventEmitter {
     };
 
     let updatedAlarms = arr.filter(a => !toDelete[a._id]);
-    updatedAlarms = arr.map(a => {
+    updatedAlarms = updatedAlarms.map(a => {
       if (rang.includes(a._id)) {
         return {
           ...a,
@@ -55,6 +53,7 @@ class EventEmitter {
       }
       return a;
     })
+
     events[time] = updatedAlarms;
     this.events = events;
   }

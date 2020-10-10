@@ -71,8 +71,8 @@ const AlarmModalView = ({ alarmState, alarmState: { alarmMessage }, wakeUp, snoo
             </View>
             <View style={styles.buttonView}>
               <Button 
-                buttonStyle={styles.buttonStyles}
-                text="Snooze"
+                buttonStyle={styles.buttonStyles2}
+                text="Snooze 10 min"
                 onPress={snooze}
               />
 
