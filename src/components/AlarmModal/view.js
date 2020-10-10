@@ -5,7 +5,7 @@ import styles from './styles';
 import Button from '../../shared/components/Button';
 import { USER_DEFAULT } from '../../../assets/images/';
 
-const AlarmModalView = ({ alarmState, alarmState: { alarmMessage }, wakeUp }) => {
+const AlarmModalView = ({ alarmState, alarmState: { alarmMessage }, wakeUp, snooze }) => {
   function renderMessage() {
     if (alarmMessage.message) {
       return (
@@ -70,6 +70,12 @@ const AlarmModalView = ({ alarmState, alarmState: { alarmMessage }, wakeUp }) =>
               
             </View>
             <View style={styles.buttonView}>
+              <Button 
+                buttonStyle={styles.buttonStyles2}
+                text="Snooze 10 min"
+                onPress={snooze}
+              />
+
               <Button 
                 buttonStyle={styles.buttonStyles}
                 text="Wake up"
