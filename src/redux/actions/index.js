@@ -16,11 +16,15 @@ export const STOP_ALARM = 'STOP_ALARM';
 export const TOGGLE_ACTIVE = 'TOGGLE_ACTIVE';
 export const REMOVE_ALARM_FROM_STATE = 'REMOVE_ALARM_FROM_STATE';
 export const DELETE_ALARM = 'DELETE_ALARM';
+export const SNOOZE_RING = 'SNOOZE_RING';
+export const ON_SNOOZE = 'ON_SNOOZE';
 
 export const SET_ALARM_ID = 'SET_ALARM_ID';
 export const GET_SONGS = 'GET_SONGS';
 export const SET_SONGS = 'SET_SONGS';
 export const SET_SONG_ID = 'SET_SONG';
 export const SUBMIT_ALARM_MESSAGE = 'SUBMIT_ALARM_MESSAGE';
+export const OPEN_ALARM_MODAL = 'OPEN_ALARM_MODAL';
+export const CLOSE_ALARM_MODAL = 'CLOSE_ALARM_MODAL';
 
 export const SET_MESSAGES = 'SET_MESSAGES';

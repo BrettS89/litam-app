@@ -9,12 +9,15 @@ import eventEmitter from '../../utils/EventEmitter';
 import { myAlarmsState } from '../selectors';
 import setAlarmsInEmitter from '../../utils/setAlarmsInEmitter';
 import alert from '../../utils/alert';
+import getTimeForSnooze from '../../utils/getTimeForSnooze';
 
 export default [
   addAlarmWatcher,
   toggleActiveWatcher,
   removeAlarmFromStateWatcher,
   deleteAlarmWatcher,
+  snoozeWatcher,
+  snoozeRingWatcher
 ];
 
 function * addAlarmWatcher() {
@@ -32,6 +35,15 @@ function * removeAlarmFromStateWatcher() {
 function * deleteAlarmWatcher() {
   yield takeLatest(actions.DELETE_ALARM, deleteAlarmHandler);
 }
+
+function * snoozeWatcher() {
+  yield takeLatest(actions.ON_SNOOZE, snoozeHandler);
+}
+
+function * snoozeRingWatcher() {
+  yield takeLatest(actions.SNOOZE_RING, snoozeRingHandler);
+}
+
 
 function * addAlarmHandler({ payload: { alarm, navigate } }) {
   try {
@@ -116,5 +128,31 @@ function * deleteAlarmHandler({ payload }) {
   } catch(e) {
     alert('Error', e.message);
     console.log('deleteAlarmHandler error', e);
+  }
+}
+
+function * snoozeHandler({ payload }) {
+  try {
+    // yield put({ type: actions.CLOSE_ALARM_MODAL });
+    const snoozedAlarm = {
+      _id: 'snooze',
+      active: true,
+      days: [],
+      time: getTimeForSnooze(),
+      snooze: true,
+    };
+
+    setAlarmsInEmitter(snoozedAlarm);
+
+  } catch(e) {
+    console.log('snoozeHandler error', e);
+  }
+}
+
+function * snoozeRingHandler({ payload }) {
+  try {
+
+  } catch(e) {
+    console.log('snoozeRingHandler error', e);
   }
 }
