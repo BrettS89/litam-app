@@ -34,11 +34,13 @@ function * registerHandler({ payload: { form, navigate } }) {
     yield put({ type: actions.SET_USER_DATA, payload: user });
 
     const promiseArr = [
+      api.getMyAlarms(),
       api.getAlarms(),
     ];
 
-    const [{ alarms }] = yield Promise.all(promiseArr);
+    const [{ myAlarms }, { alarms }] = yield Promise.all(promiseArr);
 
+    yield put({ type: actions.SET_MY_ALARMS, payload: myAlarms });
     yield put({ type: actions.SET_ALARMS, payload: alarms });
 
     yield put({ type: actions.APP_NOT_LOADING });
