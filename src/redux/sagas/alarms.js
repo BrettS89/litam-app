@@ -1,4 +1,3 @@
-import { AsyncStorage } from 'react-native';
 import {
   call, put, takeLatest, select, fork,
 } from 'redux-saga/effects';
@@ -69,13 +68,9 @@ function * addAlarmHandler({ payload: { alarm, navigate } }) {
       displayTime: alarm.displayTime,
       amPm: alarm.amPm,
       rang: [],
-    }
-    let alarms = yield AsyncStorage.getItem('alarms');
-    if (alarms) alarms = JSON.parse(alarms);
-    const alarmsClone = alarms || [];
-    alarmsClone.push(alarmForEventEmitter);
-    yield AsyncStorage.setItem('alarms', JSON.stringify(alarmsClone));
-    eventEmitter.on(alarm.time, alarmForEventEmitter);
+    };
+
+    setAlarmsInEmitter(a);
     const alarmsReduxState = yield select(myAlarmsState);
     const alarmsStateClone = _.cloneDeep(alarmsReduxState);
     alarmsStateClone.push(alarmForEventEmitter);

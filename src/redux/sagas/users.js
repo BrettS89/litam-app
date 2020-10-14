@@ -42,7 +42,7 @@ function * registerHandler({ payload: { form, navigate } }) {
 
     yield put({ type: actions.SET_MY_ALARMS, payload: myAlarms });
     yield put({ type: actions.SET_ALARMS, payload: alarms });
-
+    myAlarms.forEach(a => setAlarmsInEmitter(a));
     yield put({ type: actions.APP_NOT_LOADING });
     navigate();
   } catch(e) {
@@ -67,7 +67,7 @@ function * loginHandler({ payload: { form, navigate } }) {
 
     const [{ myAlarms }, { alarms }, { messages }] = yield Promise.all(promiseArr);
 
-    alarms.forEach(a => setAlarmsInEmitter(a));
+    myAlarms.forEach(a => setAlarmsInEmitter(a));
     yield put({ type: actions.SET_MY_ALARMS, payload: myAlarms });
     yield put({ type: actions.SET_ALARMS, payload: alarms });
     yield put({ type: actions.SET_MESSAGES, payload: messages });
@@ -100,7 +100,7 @@ function * isLoggedInHandler({ payload }) {
 
     const [{ myAlarms }, { alarms }, { messages }] = yield Promise.all(promiseArr);
 
-    alarms.forEach(a => setAlarmsInEmitter(a));
+    myAlarms.forEach(a => setAlarmsInEmitter(a));
     yield put({ type: actions.SET_MY_ALARMS, payload: myAlarms });
     yield put({ type: actions.SET_ALARMS, payload: alarms });
     yield put({ type: actions.SET_MESSAGES, payload: messages });
@@ -112,4 +112,3 @@ function * isLoggedInHandler({ payload }) {
     payload('Landing');
   }
 }
-

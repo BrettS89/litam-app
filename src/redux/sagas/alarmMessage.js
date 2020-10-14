@@ -4,7 +4,6 @@ import {
 import _ from 'lodash';
 import * as actions from '../actions';
 import * as api from '../../lib/api';
-import eventEmitter from '../../utils/EventEmitter';
 import { songsState, alarmsState } from '../selectors';
 import alert from '../../utils/alert';
 
